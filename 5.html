@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mada | Growth Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .glow-text { text-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.85); /* زيادة الوضوح */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #4ade80;
+            border-radius: 2px;
+        }
+        .arrow-down {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            margin: 10px 0;
+        }
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .play-btn {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        .glitch-logo {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-logo:hover {
+            animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #4ade80;
+        }
+        @keyframes glitch-anim {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#4ade80', dark: '#0f172a', darker: '#020617',
+                        video: '#a855f7', soft: '#f97316', strat: '#3b82f6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darker text-white overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 glass-card border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex-shrink-0 cursor-pointer">
+                <span class="text-3xl font-black tracking-tighter text-white glitch-logo transition duration-300" id="main-logo" data-i18n="logo_html">
+                    مدىـــــــــــــــــــى
+                </span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <div class="flex items-baseline space-x-4 space-x-reverse" id="nav-links">
+                    <a href="#home" class="hover:text-brand px-3 py-2 rounded-md font-bold transition" data-i18n="home">الرئيسية</a>
+                    <a href="#about" class="hover:text-brand px-3 py-2 rounded-md font-bold transition" data-i18n="about_nav">من نحن</a>
+                    <a href="#projects" class="hover:text-brand px-3 py-2 rounded-md font-bold transition" data-i18n="projects">قصص نجاح</a>
+                    <a href="#services" class="hover:text-brand px-3 py-2 rounded-md font-bold transition" data-i18n="services">خدماتنا</a>
+                    <a href="#work" class="hover:text-brand px-3 py-2 rounded-md font-bold transition" data-i18n="work">أعمالنا</a>
+                    <a href="#contact" class="bg-brand text-dark px-5 py-2 rounded-full font-bold hover:bg-white transition" data-i18n="cta">ابدأ الآن</a>
+                </div>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 border border-gray-600 px-3 py-1 rounded-full hover:border-brand transition">
+                    <span id="lang-text" class="text-sm font-bold">English</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="absolute top-20 left-20 w-72 h-72 bg-brand rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute bottom-20 right-20 w-72 h-72 bg-video rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+
+        <div class="text-center z-10 px-4 max-w-4xl mx-auto">
+            <p class="text-brand font-bold mb-4 tracking-widest uppercase" data-i18n="hero_badge">Growth Hacking Agency</p>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight glow-text">
+                <span data-i18n="hero_line1">مش بنبيع لايكات،</span><br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-emerald-600" data-i18n="hero_line2">إحنا بنبيع نمو.</span>
+            </h1>
+            <p class="text-gray-400 text-xl mb-10 max-w-2xl mx-auto" data-i18n="hero_desc">وكالة تسويق تدمج بين الأفكار المجنونة ولغة الأرقام. نحول الفوضى الإبداعية إلى أرباح حقيقية.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-brand text-dark text-lg font-bold px-8 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-brand/20" data-i18n="hero_btn1">تواصل معنا</a>
+                <a href="#work" class="border border-gray-600 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white hover:text-dark transition" data-i18n="hero_btn2">شاهد أعمالنا</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-dark/50 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-t-brand hover:shadow-[0_0_30px_rgba(74,222,128,0.2)] transition duration-300">
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase" data-i18n="about_title">من نحن</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="about_desc">نحن وكالة نمو تدمج بين قوة التكنولوجيا ولغة الأرقام لتحقيق نتائج ملموسة. نحول الأفكار المبتكرة إلى واقع رقمي يزيد من مبيعاتك ويوسع أفق علامتك التجارية.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-t-strat hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition duration-300">
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase" data-i18n="vision_title">رؤيتنا</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="vision_desc">أن نكون الوكالة الرائدة في قيادة التحول الرقمي والنمو الذكي للشركات، وأن نصبح الخيار الأول لكل براند يبحث عن التميز والانتشار العالمي.</p>
+                </div>
+                <div class="glass-card p-8 rounded-2xl border-t-4 border-t-soft hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition duration-300">
+                    <h3 class="text-2xl font-black text-white mb-4 uppercase" data-i18n="mission_title">رسالتنا</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-i18n="mission_desc">تمكين شركائنا من السيطرة على أسواقهم بتقديم حلول رقمية متكاملة، وبناء استراتيجيات ذكية تحول كل استثمار إلى مبيعات حقيقية ونجاح مستدام.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 border-b border-gray-800 bg-black/40 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><h3 class="text-5xl font-black text-white mb-2">+5M</h3><p class="text-gray-400" data-i18n="stat_reach">وصول (Reach)</p></div>
+            <div><h3 class="text-5xl font-black text-brand mb-2">+300%</h3><p class="text-gray-400" data-i18n="stat_roi">متوسط عائد (ROAS)</p></div>
+            <div><h3 class="text-5xl font-black text-white mb-2">+10</h3><p class="text-gray-400" data-i18n="stat_partners">شريك نجاح</p></div>
+            <div><h3 class="text-5xl font-black text-brand mb-2" data-i18n="stat_support_val">Instant</h3><p class="text-gray-400" data-i18n="stat_support">دعم فني سريع</p></div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-gray-500 mb-8 font-bold uppercase tracking-widest" data-i18n="partners_title">شركاء النجاح</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-80">
+                <img src="logo1.png" alt="Client 1" class="h-16 md:h-20 w-auto object-contain client-logo">
+                <img src="logo2.png" alt="Client 2" class="h-16 md:h-20 w-auto object-contain client-logo">
+                <img src="logo3.png" alt="Client 3" class="h-16 md:h-20 w-auto object-contain client-logo">
+                <img src="logo4.png" alt="Client 4" class="h-16 md:h-20 w-auto object-contain client-logo">
+                <img src="logo5.png" alt="Client 5" class="h-16 md:h-20 w-auto object-contain client-logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-darker border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-12 text-white" data-i18n="platforms_title">المنصات</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full bg-blue-600/10 flex items-center justify-center mb-4 group-hover:bg-blue-600/20 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-10 h-10 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <span class="font-bold text-gray-300">Facebook</span>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full bg-pink-600/10 flex items-center justify-center mb-4 group-hover:bg-pink-600/20 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-10 h-10 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </div>
+                    <span class="font-bold text-gray-300">Instagram</span>
+                </div>
+                <div class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full bg-gray-700/30 flex items-center justify-center mb-4 group-hover:bg-gray-700/50 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.35-1.17 1.09-1.07 1.93.03.58.46 1.13.96 1.34 1.36.64 3.04.15 3.96-1.06.71-.94.7-2.18.7-3.29.02-4.09.01-8.18 0-12.27z"/></svg>
+                    </div>
+                    <span class="font-bold text-gray-300">TikTok</span>
+                </div>
+                <div class="flex flex-col items-center group relative">
+                    <div class="w-20 h-20 rounded-full bg-yellow-400/10 flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition duration-300 transform group-hover:scale-110">
+                        <svg class="w-10 h-10 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.005 0C5.393 0 0 5.372 0 12h24c0-6.628-5.393-12-11.995-12z" opacity="0"/><path d="M12.115 1.5C13.25 1.5 14.99 2.455 15.22 4.96c.03.325.265.57.595.57.195 0 .73-.01 1.155.155.675.265.815.93.815 1.37 0 .42-.16 1.335-1.745 2.01-.475.205-.595.515-.595.735 0 .28.21.6.83.99 1.37.865 2.19 2.025 2.19 3.105 0 1.295-1.125 2.215-2.26 2.52-.39.105-.335.535-.295.71.05.215.345 1.47 2.175 1.77.17.03.29.175.29.35 0 .295-.125.75-.92 1.32-.715.51-1.765.73-2.935.615-.47-.045-1.075-.36-2.315-.36-1.22 0-1.84.32-2.32.365-1.15.11-2.2-.11-2.91-.62-.795-.565-.925-1.025-.925-1.315 0-.175.12-.32.29-.35 1.83-.3 2.125-1.555 2.175-1.77.04-.175.095-.605-.295-.71-1.135-.305-2.26-1.225-2.26-2.52 0-1.08.82-2.24 2.19-3.105.62-.39.83-.71.83-.99 0-.22-.12-.53-.595-.735-1.585-.675-1.745-1.59-1.745-2.01 0-.44.14-1.105.815-1.37.425-.165.96-.155 1.155-.155.33 0 .565-.245.595-.57C6.015 2.455 7.755 1.5 8.89 1.5h3.225z"/></svg>
+                    </div>
+                    <span class="font-bold text-gray-300">Snapchat</span>
+                    <span class="absolute top-0 right-10 bg-brand text-darker text-[10px] font-black px-2 py-0.5 rounded-full" data-i18n="beta_badge">BETA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-darker relative border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-brand font-bold uppercase tracking-widest mb-2" data-i18n="feat_subtitle">نتائج حقيقية</p>
+                <h2 class="text-4xl font-black mb-4 text-white" data-i18n="feat_title">أبرز قصص النجاح</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-xl hover:border-brand transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <small class="text-brand font-bold uppercase tracking-wide mb-2 block" data-i18n="proj1_cat">حملة متكاملة (360° Campaign)</small>
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="proj1_title">صيدليات وصفة</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6" data-i18n="proj1_desc">مزيج قوي بين المونتاج الاحترافي، تصميمات السوشيال ميديا، وإعلانات موجهة بدقة. حققنا 400 ألف مشاهدة في رمضان فقط.</p>
+                        <div class="flex gap-2 flex-wrap mb-8">
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Ads & Media Buying</span>
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Video Editing</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-6 mt-auto">
+                        <h4 class="text-4xl font-black text-brand mb-1">400K+</h4>
+                        <p class="text-sm text-gray-500" data-i18n="proj1_stat">مشاهدة وتفاعل في شهر واحد</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-xl hover:border-brand transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <small class="text-brand font-bold uppercase tracking-wide mb-2 block" data-i18n="proj2_cat">إعادة إحياء (Revival)</small>
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="proj2_title">د. ياسر</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6" data-i18n="proj2_desc">تحويل الصفحة من الركود إلى النشاط التام عبر إنتاج 30 فيديو طبي وإطلاق حملات إعلانية استهدفت الجمهور المثالي.</p>
+                        <div class="flex gap-2 flex-wrap mb-8">
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Content & Ads</span>
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Page Growth</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-6 mt-auto">
+                        <h4 class="text-4xl font-black text-brand mb-1">30+</h4>
+                        <p class="text-sm text-gray-500" data-i18n="proj2_stat">فيديو + حملات إعلانية</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-xl hover:border-brand transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <small class="text-brand font-bold uppercase tracking-wide mb-2 block" data-i18n="proj3_cat">نمو وتطوير (Growth)</small>
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="proj3_title">بيتزا ميلانو</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6" data-i18n="proj3_desc">تطوير شامل للبزنس: من ابتكار وجبات جديدة وتطوير نقاط البيع، وصولاً لإعلانات ممولة ضاعفت الوصول والمبيعات.</p>
+                        <div class="flex gap-2 flex-wrap mb-8">
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Business Dev</span>
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Performance Ads</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-6 mt-auto">
+                        <h4 class="text-4xl font-black text-brand mb-1">Scale</h4>
+                        <p class="text-sm text-gray-500" data-i18n="proj3_stat">تطوير منتجات + إعلانات</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-xl hover:border-brand transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <small class="text-brand font-bold uppercase tracking-wide mb-2 block" data-i18n="proj5_cat">إعادة هيكلة بصرية</small>
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="proj5_title">Easy Learn Academy</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6" data-i18n="proj5_desc">خطة تسويقية محكمة، مدعومة بتصوير فوتوغرافي احترافي وتصميمات سوشيال ميديا عصرية (Designs) غيرت شكل الأكاديمية.</p>
+                        <div class="flex gap-2 flex-wrap mb-8">
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Photography</span>
+                            <span class="border border-gray-700 text-gray-400 text-xs px-3 py-1 rounded-full">Creative Design</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-800 pt-6 mt-auto">
+                        <h4 class="text-4xl font-black text-brand mb-1">Visuals</h4>
+                        <p class="text-sm text-gray-500" data-i18n="proj5_stat">تطوير بصرى كامل</p>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-800 p-8 rounded-xl hover:border-blue-500 transition duration-300 flex flex-col md:flex-row items-center justify-between group">
+                    <div class="md:w-2/3">
+                        <small class="text-blue-400 font-bold uppercase tracking-wide mb-2 block" data-i18n="proj4_cat">الاستشارات والتحليل</small>
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="proj4_title">تطوير الأعمال والاستراتيجيات</h3>
+                        <p class="text-gray-400 leading-relaxed" data-i18n="proj4_desc">نحن لا نخمن، نحن نخطط. نقدم تشخيص للأداء، تحسين العائد (ROI)، أتمتة العمليات، دراسات جدوى، وابتكار نموذج العمل لضمان استمرارية النمو.</p>
+                    </div>
+                    <div class="md:w-1/3 mt-6 md:mt-0 text-center md:text-left border-t md:border-t-0 md:border-r border-gray-700 pt-6 md:pt-0 md:pr-8">
+                        <h4 class="text-4xl font-black text-blue-400 mb-1">Expert</h4>
+                        <p class="text-sm text-gray-500" data-i18n="proj4_stat">رؤية استراتيجية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-dark">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black mb-4"><span class="text-white" data-i18n="services_title">خدماتنا</span> <span class="text-brand">.</span></h2>
+                <p class="text-gray-400" data-i18n="services_subtitle">نظام متكامل يضمن لك النتائج من التخطيط إلى التنفيذ</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 items-start">
+                
+                <div class="flex flex-col h-full">
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-brand w-full text-center relative z-10 transition-all duration-300 hover:border-brand hover:shadow-[0_0_30px_rgba(74,222,128,0.2)] h-[240px] flex flex-col justify-center items-center group">
+                        <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-brand transition-all duration-300 group-hover:bg-brand group-hover:text-dark group-hover:scale-110">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-brand transition" data-i18n="serv_gro_title">Growth Marketing</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="serv_gro_desc">إعلانات ممولة ذكية تركز على العائد (ROI) وتحويل كل جنيه مصروف لمبيعات.</p>
+                    </div>
+                    <div class="flex justify-center py-4 text-brand">
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="flex flex-col gap-4 flex-grow">
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-brand transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-brand transition" data-i18n="gro_1_t">Sales 💰</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="gro_1_d">تحويل المشاهدين إلى عملاء دافعين بزيادة معدل التحويل.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-brand transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-brand transition" data-i18n="gro_2_t">Reach 🚀</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="gro_2_d">وصول دقيق لعميلك المثالي في الوقت المناسب.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-brand transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-brand transition" data-i18n="gro_3_t">Awareness 📢</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="gro_3_d">ترسيخ اسم علامتك التجارية ليكون الاختيار الأول.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-brand transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-brand transition" data-i18n="gro_4_t">Targeting 🎯</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="gro_4_d">استهداف العميل الصح في المكان الصح بأقل تكلفة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-brand transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-brand transition" data-i18n="gro_5_t">Trust Building 🤝</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="gro_5_d">بناء جسور الثقة والمصداقية بينك وبين عميلك.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col h-full">
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-video w-full text-center relative z-10 transition-all duration-300 hover:border-video hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] h-[240px] flex flex-col justify-center items-center group">
+                        <div class="w-16 h-16 bg-video/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-video transition-all duration-300 group-hover:bg-video group-hover:text-white group-hover:scale-110">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-video transition" data-i18n="serv_viral_title">Viral Content</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="serv_viral_desc">صناعة محتوى فيديو سريع الانتشار يخطف الانتباه من أول ثانية.</p>
+                    </div>
+                    <div class="flex justify-center py-4 text-video">
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="flex flex-col gap-4 flex-grow">
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-video transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-video transition" data-i18n="vir_1_t">Reels 🎥</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="vir_1_d">فيديوهات قصيرة بـ Hook قوي لا يمكن تجاهله.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-video transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-video transition" data-i18n="vir_2_t">Creative Posts 🎨</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="vir_2_d">تصاميم بصرية ذكية توقف السكرول وتجذب العين.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-video transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-video transition" data-i18n="vir_3_t">Carousel 🖼️</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="vir_3_d">سرد قصصي (Storytelling) يعرض تفاصيل منتجك ببراعة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-video transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-video transition" data-i18n="vir_6_t">Whiteboard 🖍️</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="vir_6_d">فيديوهات رسم لشرح الأفكار المعقدة بأسلوب ممتع ومبسط.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-video transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-video transition" data-i18n="vir_4_t">CGI Ads 🤖</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="vir_4_d">إعلانات واقع معزز تخطف الأنظار وتعمل Viral.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col h-full">
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-strat w-full text-center relative z-10 transition-all duration-300 hover:border-strat hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] h-[240px] flex flex-col justify-center items-center group">
+                        <div class="w-16 h-16 bg-strat/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-strat transition-all duration-300 group-hover:bg-strat group-hover:text-white group-hover:scale-110">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-strat transition" data-i18n="serv_strat_title">Creative Strategy</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="serv_strat_desc">تطوير هوية بصرية واستراتيجية تسويقية كاملة تضعك في مكانة مختلفة.</p>
+                    </div>
+                    <div class="flex justify-center py-4 text-strat">
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="flex flex-col gap-4 flex-grow">
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-strat transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-strat transition" data-i18n="strat_1_t">Strategy 🧠</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="strat_1_d">بناء خارطة طريق واضحة للتفوق بناءً على أهدافك.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-strat transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-strat transition" data-i18n="strat_2_t">Competitor Analysis 🕵️</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="strat_2_d">مراقبة المنافسين وكشف نقاط ضعفهم لاستغلالها لصالحك.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-strat transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-strat transition" data-i18n="strat_3_t">Calendar 🗓️</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="strat_3_d">جدول محتوى شهري يضمن استمرارية ظهورك بقوة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-strat transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-strat transition" data-i18n="strat_4_t">SWOT Analysis 📊</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="strat_4_d">تحليل نقاط القوة والضعف والفرص لبيزنس قوي.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-strat transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-strat transition" data-i18n="strat_5_t">Trend Tracking 📈</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="strat_5_d">متابعة الترندات واستغلالها لصالح نمو علامتك.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col h-full">
+                    <div class="glass-card p-6 rounded-2xl border-t-4 border-t-soft w-full text-center relative z-10 transition-all duration-300 hover:border-soft hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] h-[240px] flex flex-col justify-center items-center group">
+                        <div class="w-16 h-16 bg-soft/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-soft transition-all duration-300 group-hover:bg-soft group-hover:text-white group-hover:scale-110">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-soft transition" data-i18n="serv_ai_title">AI & Software</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="serv_ai_desc">دمج الذكاء الاصطناعي مع البرمجيات لخلق حلول رقمية غير مسبوقة.</p>
+                    </div>
+                    <div class="flex justify-center py-4 text-soft">
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="flex flex-col gap-4 flex-grow">
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-soft transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-soft transition" data-i18n="ai_1_t">AI Content Creation 🤖</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="ai_1_d">إنتاج محتوى (صور، نصوص، صوت) بسرعة وجودة فائقة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-soft transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-soft transition" data-i18n="ai_2_t">Web Development 🌐</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="ai_2_d">تصميم وبرمجة مواقع سريعة ومتجاوبة مع جميع الأجهزة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-soft transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-soft transition" data-i18n="ai_3_t">Mobile Apps 📱</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="ai_3_d">تطبيقات هواتف ذكية (iOS & Android) بتجربة مستخدم سلسة.</p>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 p-5 rounded-xl hover:border-soft transition duration-300 h-[140px] flex flex-col justify-center items-center text-center shadow-lg group">
+                            <h4 class="font-bold text-white text-lg mb-2 group-hover:text-soft transition" data-i18n="ai_4_t">Smart Automation ⚡</h4>
+                            <p class="text-sm text-gray-300 leading-relaxed group-hover:text-white" data-i18n="ai_4_d">أتمتة العمليات والردود لتقليل الجهد وزيادة الإنتاجية.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 bg-darker">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4" data-i18n="work_title">معرض الأعمال</h2>
+                <p class="text-gray-400" data-i18n="work_subtitle">جولة في إبداعنا المقسم حسب التخصص</p>
+            </div>
+
+            <div class="mb-24">
+                <div class="flex items-center gap-4 mb-8">
+                    <h3 class="text-2xl font-bold section-title text-video" data-i18n="work_video_title">Video Production & Reels</h3>
+                    <div class="h-px bg-gray-800 flex-grow"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-video transition" onclick="openLightbox('1.mp4')">
+                        <img src="vid1.png" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-video/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-video/30 play-btn">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-video font-bold text-lg" data-i18n="work_vid1">إعلان تجاري (Creative Ad)</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-video transition" onclick="openLightbox('2.mp4')">
+                        <img src="vid2.png" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-video/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-video/30 play-btn">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-video font-bold text-lg" data-i18n="work_vid2">موشن جرافيك (Motion)</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-video transition" onclick="openLightbox('3.mp4')">
+                        <img src="vid3.png" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-video/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-video/30 play-btn">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-video font-bold text-lg" data-i18n="work_vid3">ريلز سريعة (Viral Reels)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <div class="flex items-center gap-4 mb-8">
+                    <h3 class="text-2xl font-bold section-title text-brand" data-i18n="work_wb_title">Whiteboard Animation 🖍️</h3>
+                    <div class="h-px bg-gray-800 flex-grow"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-brand transition" onclick="openLightbox('wb1.mp4')">
+                        <img src="wb1.png" alt="Whiteboard Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 bg-white">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-brand/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-brand/30 play-btn text-darker">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-brand font-bold text-lg">فيديو شرح 1</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-brand transition" onclick="openLightbox('wb2.mp4')">
+                        <img src="wb2.png" alt="Whiteboard Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 bg-white">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-brand/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-brand/30 play-btn text-darker">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-brand font-bold text-lg">فيديو شرح 2</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-brand transition" onclick="openLightbox('wb3.mp4')">
+                        <img src="wb3.png" alt="Whiteboard Thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 bg-white">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-brand/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition shadow-lg shadow-brand/30 play-btn text-darker">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-end flex-col pb-6">
+                            <span class="text-brand font-bold text-lg">فيديو شرح 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <div class="flex items-center gap-4 mb-8">
+                    <h3 class="text-2xl font-bold section-title text-strat">Advertising Campaigns</h3>
+                    <div class="h-px bg-gray-800 flex-grow"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-strat transition" onclick="openLightbox('1.png')">
+                        <img src="1.png" alt="Ad 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-strat font-bold text-lg" data-i18n="work_ad1">حملة Midea</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-strat transition" onclick="openLightbox('2.png')">
+                        <img src="2.png" alt="Ad 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-strat font-bold text-lg" data-i18n="work_ad2">حملة Carrier</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-strat transition" onclick="openLightbox('3.png')">
+                        <img src="3.png" alt="Ad 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-strat font-bold text-lg" data-i18n="work_ad3">إعلان ترويجي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-24">
+                <div class="flex items-center gap-4 mb-8">
+                    <h3 class="text-2xl font-bold section-title text-soft">Social Media Posts</h3>
+                    <div class="h-px bg-gray-800 flex-grow"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-soft transition" onclick="openLightbox('4.png')">
+                        <img src="4.png" alt="Post 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-soft font-bold text-lg" data-i18n="work_post1">بوست تفاعلي</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-soft transition" onclick="openLightbox('5.png')">
+                        <img src="5.png" alt="Post 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-soft font-bold text-lg" data-i18n="work_post2">تصميم مناسبات</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-soft transition" onclick="openLightbox('6.png')">
+                        <img src="6.png" alt="Post 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-soft font-bold text-lg" data-i18n="work_post3">تحليل ونتائج</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center gap-4 mb-8">
+                    <h3 class="text-2xl font-bold section-title text-purple-400">Visual Identity</h3>
+                    <div class="h-px bg-gray-800 flex-grow"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-purple-400 transition" onclick="openLightbox('7.png')">
+                        <img src="7.png" alt="Brand 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-purple-400 font-bold text-lg" data-i18n="work_brand1">لوجو وشعار</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-purple-400 transition" onclick="openLightbox('8.png')">
+                        <img src="8.png" alt="Brand 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-purple-400 font-bold text-lg" data-i18n="work_brand2">Packaging</span>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer relative overflow-hidden rounded-2xl h-64 border border-gray-800 hover:border-purple-400 transition" onclick="openLightbox('9.png')">
+                        <img src="9.png" alt="Brand 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center flex-col">
+                            <span class="text-purple-400 font-bold text-lg" data-i18n="work_brand3">يافطة خارجية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-5xl font-black mb-6" data-i18n="contact_title">جاهز تعمل <span class="text-brand">نقلة</span>؟</h2>
+            <p class="text-xl text-gray-300 mb-10" data-i18n="contact_subtitle">
+                تواصل معنا مباشرة.<br>أول استشارة مجانية بالكامل.
+            </p>
+            
+            <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row items-center justify-center gap-8 text-lg">
+                <a href="tel:+201011700521" class="flex items-center gap-3 hover:text-brand transition group">
+                    <div class="w-12 h-12 bg-brand/20 rounded-full flex items-center justify-center group-hover:bg-brand transition">
+                        <svg class="w-6 h-6 text-brand group-hover:text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <span class="font-bold" dir="ltr">+20 1011 700 521</span>
+                </a>
+                <div class="hidden md:block w-px h-12 bg-gray-700"></div>
+                <a href="mailto:1Ahmeda14@gmail.com" class="flex items-center gap-3 hover:text-brand transition group">
+                    <div class="w-12 h-12 bg-brand/20 rounded-full flex items-center justify-center group-hover:bg-brand transition">
+                        <svg class="w-6 h-6 text-brand group-hover:text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="font-bold">1Ahmeda14@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center p-4 cursor-pointer backdrop-blur-sm" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-gray-400 hover:text-white text-4xl font-bold z-50">&times;</button>
+        <img id="lightbox-img" src="" class="hidden max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-gray-800 transform transition scale-100">
+        <video id="lightbox-video" controls class="hidden max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border border-gray-800">
+            <source src="" type="video/mp4">
+            متصفحك لا يدعم الفيديو.
+        </video>
+    </div>
+
+    <script>
+        const translations = {
+            ar: {
+                logo_html: "مدىـــــــــــــــــــى",
+                home: "الرئيسية",
+                about_nav: "من نحن",
+                projects: "قصص نجاح",
+                work: "أعمالنا",
+                services: "خدماتنا",
+                cta: "ابدأ الآن",
+                hero_badge: "Growth Hacking Agency",
+                hero_line1: "مش بنبيع لايكات،",
+                hero_line2: "إحنا بنبيع نمو.",
+                hero_desc: "وكالة تسويق تدمج بين الأفكار المجنونة ولغة الأرقام. نحول الفوضى الإبداعية إلى أرباح حقيقية.",
+                hero_btn1: "تواصل معنا",
+                hero_btn2: "شاهد أعمالنا",
+                
+                about_title: "من نحن",
+                about_desc: "نحن وكالة نمو تدمج بين قوة التكنولوجيا ولغة الأرقام لتحقيق نتائج ملموسة. نحول الأفكار المبتكرة إلى واقع رقمي يزيد من مبيعاتك ويوسع أفق علامتك التجارية.",
+                vision_title: "رؤيتنا",
+                vision_desc: "أن نكون الوكالة الرائدة في قيادة التحول الرقمي والنمو الذكي للشركات، وأن نصبح الخيار الأول لكل براند يبحث عن التميز والانتشار العالمي.",
+                mission_title: "رسالتنا",
+                mission_desc: "تمكين شركائنا من السيطرة على أسواقهم بتقديم حلول رقمية متكاملة، وبناء استراتيجيات ذكية تحول كل استثمار إلى مبيعات حقيقية ونجاح مستدام.",
+                
+                stat_reach: "وصول (Reach)",
+                stat_roi: "متوسط عائد (ROAS)",
+                stat_partners: "شريك نجاح",
+                stat_support_val: "Instant",
+                stat_support: "دعم فني سريع",
+                partners_title: "شركاء النجاح",
+                platforms_title: "المنصات",
+                beta_badge: "تجريبي",
+                
+                feat_subtitle: "نتائج حقيقية",
+                feat_title: "أبرز قصص النجاح",
+                proj1_cat: "حملة متكاملة (360° Campaign)",
+                proj1_title: "صيدليات وصفة",
+                proj1_desc: "مزيج قوي بين المونتاج الاحترافي، تصميمات السوشيال ميديا، وإعلانات موجهة بدقة. حققنا 400 ألف مشاهدة في رمضان فقط.",
+                proj1_stat: "مشاهدة وتفاعل في شهر واحد",
+                proj2_cat: "إعادة إحياء (Revival)",
+                proj2_title: "د. ياسر",
+                proj2_desc: "تحويل الصفحة من الركود إلى النشاط التام عبر إنتاج 30 فيديو طبي وإطلاق حملات إعلانية استهدفت الجمهور المثالي.",
+                proj2_stat: "فيديو + حملات إعلانية",
+                proj3_cat: "نمو وتطوير (Growth)",
+                proj3_title: "بيتزا ميلانو",
+                proj3_desc: "تطوير شامل للبزنس: من ابتكار وجبات جديدة وتطوير نقاط البيع، وصولاً لإعلانات ممولة ضاعفت الوصول والمبيعات.",
+                proj3_stat: "تطوير منتجات + إعلانات",
+                proj5_cat: "إعادة هيكلة بصرية",
+                proj5_title: "Easy Learn Academy",
+                proj5_desc: "خطة تسويقية محكمة، مدعومة بتصوير فوتوغرافي احترافي وتصميمات سوشيال ميديا عصرية (Designs) غيرت شكل الأكاديمية.",
+                proj5_stat: "تطوير بصرى كامل",
+                
+                biz_cat: "استشارات تطوير الأعمال",
+                biz_title: "تطوير الأعمال والاستراتيجيات",
+                biz_desc: "نحن لا نخمن، نحن نخطط. نقدم تشخيص للأداء، تحسين العائد (ROI)، أتمتة العمليات، دراسات جدوى، وابتكار نموذج العمل لضمان استمرارية النمو.",
+                proj4_stat: "رؤية استراتيجية",
+
+                services_title: "نظام العمل",
+                services_subtitle: "نظام متكامل يضمن لك النتائج من التخطيط إلى التنفيذ",
+
+                serv_gro_title: "Growth Marketing",
+                serv_gro_desc: "إعلانات ممولة ذكية تركز على العائد (ROI) وتحويل كل جنيه مصروف لمبيعات.",
+                gro_1_t: "Sales 💰",
+                gro_1_d: "تحويل المشاهدين إلى عملاء دافعين بزيادة معدل التحويل.",
+                gro_2_t: "Reach 🚀",
+                gro_2_d: "وصول دقيق لعميلك المثالي في الوقت المناسب.",
+                gro_3_t: "Awareness 📢",
+                gro_3_d: "ترسيخ اسم علامتك التجارية ليكون الاختيار الأول.",
+                gro_4_t: "Targeting 🎯",
+                gro_4_d: "استهداف العميل الصح في المكان الصح بأقل تكلفة.",
+                gro_5_t: "Trust Building 🤝",
+                gro_5_d: "بناء جسور الثقة والمصداقية بينك وبين عميلك.",
+
+                serv_viral_title: "Viral Content",
+                serv_viral_desc: "صناعة محتوى فيديو سريع الانتشار يخطف الانتباه من أول ثانية.",
+                vir_1_t: "Reels 🎥",
+                vir_1_d: "فيديوهات قصيرة بـ Hook قوي لا يمكن تجاهله.",
+                vir_2_t: "Creative Posts 🎨",
+                vir_2_d: "تصاميم بصرية ذكية توقف السكرول وتجذب العين.",
+                vir_3_t: "Carousel 🖼️",
+                vir_3_d: "سرد قصصي (Storytelling) يعرض تفاصيل منتجك ببراعة.",
+                vir_6_t: "Whiteboard 🖍️",
+                vir_6_d: "فيديوهات رسم لشرح الأفكار المعقدة بأسلوب ممتع ومبسط.",
+                vir_4_t: "CGI Ads 🤖",
+                vir_4_d: "إعلانات واقع معزز تخطف الأنظار وتعمل Viral.",
+
+                serv_strat_title: "Creative Strategy",
+                serv_strat_desc: "تطوير هوية بصرية واستراتيجية تسويقية كاملة تضعك في مكانة مختلفة.",
+                strat_1_t: "Strategy 🧠",
+                strat_1_d: "بناء خارطة طريق واضحة للتفوق بناءً على أهدافك.",
+                strat_2_t: "Competitor Analysis 🕵️",
+                strat_2_d: "مراقبة المنافسين وكشف نقاط ضعفهم لاستغلالها لصالحك.",
+                strat_3_t: "Calendar 🗓️",
+                strat_3_d: "جدول محتوى شهري يضمن استمرارية ظهورك بقوة.",
+                strat_4_t: "SWOT Analysis 📊",
+                strat_4_d: "تحليل نقاط القوة والضعف والفرص لبيزنس قوي.",
+                strat_5_t: "Trend Tracking 📈",
+                strat_5_d: "متابعة الترندات واستغلالها لصالح نمو علامتك.",
+
+                serv_ai_title: "AI & Software",
+                serv_ai_desc: "دمج الذكاء الاصطناعي مع البرمجيات لخلق حلول رقمية غير مسبوقة.",
+                ai_1_t: "AI Content Creation 🤖",
+                ai_1_d: "إنتاج محتوى (صور، نصوص، صوت) بسرعة وجودة فائقة.",
+                ai_2_t: "Web Development 🌐",
+                ai_2_d: "تصميم وبرمجة مواقع سريعة ومتجاوبة مع جميع الأجهزة.",
+                ai_3_t: "Mobile Apps 📱",
+                ai_3_d: "تطبيقات هواتف ذكية (iOS & Android) بتجربة مستخدم سلسة.",
+                ai_4_t: "Smart Automation ⚡",
+                ai_4_d: "أتمتة العمليات والردود لتقليل الجهد وزيادة الإنتاجية.",
+
+                work_title: "معرض الأعمال",
+                work_subtitle: "جولة في إبداعنا المقسم حسب التخصص",
+                work_video_title: "Video Production & Reels",
+                work_vid1: "إعلان تجاري (Creative Ad)",
+                work_vid2: "موشن جرافيك (Motion)",
+                work_vid3: "ريلز سريعة (Viral Reels)",
+                work_wb_title: "Whiteboard Animation 🖍️",
+                work_ad1: "حملة Midea",
+                work_ad2: "حملة Carrier",
+                work_ad3: "إعلان ترويجي",
+                work_post1: "بوست تفاعلي",
+                work_post2: "تصميم مناسبات",
+                work_post3: "تحليل ونتائج",
+                work_brand1: "لوجو وشعار",
+                work_brand2: "Packaging",
+                work_brand3: "يافطة خارجية",
+                
+                contact_title: "جاهز تعمل <span class='text-brand'>نقلة</span>؟",
+                contact_subtitle: "تواصل معنا مباشرة.<br>أول استشارة مجانية بالكامل."
+            },
+            en: {
+                logo_html: "Mada",
+                home: "Home",
+                about_nav: "About Us",
+                projects: "Case Studies",
+                work: "Portfolio",
+                services: "Services",
+                cta: "Start Now",
+                hero_badge: "Growth Hacking Agency",
+                hero_line1: "We don't sell likes,",
+                hero_line2: "We sell Growth.",
+                hero_desc: "A marketing agency blending Viral creativity with ROI logic to drive real profits.",
+                hero_btn1: "Contact Us",
+                hero_btn2: "View Work",
+                
+                about_title: "About Us",
+                about_desc: "We are a growth agency integrating the power of technology and the logic of numbers to achieve tangible results. We turn innovative ideas into digital realities that boost your sales.",
+                vision_title: "Our Vision",
+                vision_desc: "To be the leading agency driving digital transformation and smart growth for businesses, becoming the first choice for brands seeking global presence.",
+                mission_title: "Our Mission",
+                mission_desc: "Empowering our partners to dominate their markets by providing integrated digital solutions and building smart strategies that turn every investment into real sales.",
+                
+                stat_reach: "Reach",
+                stat_roi: "Avg. ROAS",
+                stat_partners: "Partners",
+                stat_support_val: "Instant",
+                stat_support: "Fast Support",
+                partners_title: "Success Partners",
+                platforms_title: "Platforms",
+                beta_badge: "BETA",
+                
+                feat_subtitle: "Real Results",
+                feat_title: "Success Stories",
+                proj1_cat: "360° Campaign",
+                proj1_title: "Wasfa Pharmacies",
+                proj1_desc: "A strategic mix of high-end video editing, creative designs, and targeted ads delivered 400K+ views and record-breaking engagement.",
+                proj1_stat: "Views & Engagement",
+                proj2_cat: "Revival",
+                proj2_title: "Dr. Yasser",
+                proj2_desc: "Transforming a dormant page into an active medical hub via 30+ videos and precision ad campaigns that brought the audience back.",
+                proj2_stat: "Videos + Paid Ads",
+                proj3_cat: "Business Growth",
+                proj3_title: "Pizza Milano",
+                proj3_desc: "Growth beyond marketing: We developed the menu, improved POS, and launched performance ads that skyrocketed sales and reach.",
+                proj3_stat: "Product Dev + Ads",
+                proj5_cat: "Visual Overhaul",
+                proj5_title: "Easy Learn Academy",
+                proj5_desc: "A complete visual facelift including professional photography, modern social designs, and a solid marketing plan.",
+                proj5_stat: "Photo + Design + Plan",
+
+                biz_cat: "Business Consulting",
+                biz_title: "Business Strategy",
+                biz_desc: "We don't guess; we strategize. We provide performance diagnosis, ROI optimization, process automation, and business model innovation for sustainable brand growth.",
+                proj4_stat: "Strategic Vision",
+                
+                services_title: "Work System",
+                services_subtitle: "Integrated system guaranteeing results from planning to execution",
+
+                serv_gro_title: "Growth Marketing",
+                serv_gro_desc: "Smart paid ads focused on ROI and converting spend into sales.",
+                gro_1_t: "Sales 💰",
+                gro_1_d: "Converting viewers into paying customers by increasing conversion rates.",
+                gro_2_t: "Reach 🚀",
+                gro_2_d: "Precise targeting for your ideal client at the right time.",
+                gro_3_t: "Awareness 📢",
+                gro_3_d: "Establish your brand as the first choice in the market.",
+                gro_4_t: "Targeting 🎯",
+                gro_4_d: "Reaching the right customer efficiently and effectively.",
+                gro_5_t: "Trust Building 🤝",
+                gro_5_d: "Building bridges of credibility between you and your client.",
+                
+                serv_viral_title: "Viral Content",
+                serv_viral_desc: "Creating viral video content (Reels & TikTok) that grabs attention instantly.",
+                vir_1_t: "Reels 🎥",
+                vir_1_d: "Short videos with strong hooks you can't ignore.",
+                vir_2_t: "Creative Posts 🎨",
+                vir_2_d: "Smart visual designs that stop the scroll.",
+                vir_3_t: "Carousel 🖼️",
+                vir_3_d: "Storytelling that showcases your product brilliantly.",
+                vir_6_t: "Whiteboard 🖍️",
+                vir_6_d: "Simple & engaging whiteboard videos to explain complex ideas.",
+                vir_4_t: "CGI Ads 🤖",
+                vir_4_d: "Eye-catching AR ads designed to go viral.",
+
+                serv_strat_title: "Creative Strategy",
+                serv_strat_desc: "Developing full visual identity and marketing strategy to set you apart.",
+                strat_1_t: "Strategy 🧠",
+                strat_1_d: "Building a clear roadmap for success based on your goals.",
+                strat_2_t: "Competitor Analysis 🕵️",
+                strat_2_d: "Monitoring competitors to exploit their weaknesses.",
+                strat_3_t: "Calendar 🗓️",
+                strat_3_d: "Monthly content calendar to ensure strong continuity.",
+                strat_4_t: "SWOT Analysis 📊",
+                strat_4_d: "Analyzing strengths, weaknesses, and opportunities.",
+                strat_5_t: "Trend Tracking 📈",
+                strat_5_d: "Monitoring and leveraging trends for brand growth.",
+                
+                serv_ai_title: "AI & Software",
+                serv_ai_desc: "Merging AI with custom software to create unprecedented digital solutions.",
+                ai_1_t: "AI Content Creation 🤖",
+                ai_1_d: "Generating content (images, text, voice) with superior speed and quality.",
+                ai_2_t: "Web Development 🌐",
+                ai_2_d: "Fast, responsive websites for all devices.",
+                ai_3_t: "Mobile Apps 📱",
+                ai_3_d: "User-friendly iOS & Android applications with seamless performance.",
+                ai_4_t: "Smart Automation ⚡",
+                ai_4_d: "Automating processes to reduce effort and boost productivity.",
+                
+                work_title: "Our Work",
+                work_subtitle: "A tour of our specialized creative projects",
+                work_video_title: "Video Production & Reels",
+                work_vid1: "Creative Ad",
+                work_vid2: "Motion Graphics",
+                work_vid3: "Viral Reels",
+                work_wb_title: "Whiteboard Animation 🖍️",
+                work_ad1: "Midea Campaign",
+                work_ad2: "Carrier Campaign",
+                work_ad3: "Promo Ad",
+                work_post1: "Engagement Post",
+                work_post2: "Event Design",
+                work_post3: "Analytics",
+                work_brand1: "Logo Design",
+                work_brand2: "Packaging",
+                work_brand3: "Outdoor Billboard",
+                
+                contact_title: "Ready to <span class='text-brand'>Scale</span>?",
+                contact_subtitle: "Contact us directly for a free consultation."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlTag = document.documentElement;
+            const langBtn = document.getElementById('lang-text');
+            const navLinks = document.getElementById('nav-links');
+
+            if (currentLang === 'en') {
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', 'en');
+                langBtn.textContent = 'العربية';
+                navLinks.classList.remove('space-x-reverse');
+            } else {
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                langBtn.textContent = 'English';
+                navLinks.classList.add('space-x-reverse');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        function openLightbox(mediaSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const video = document.getElementById('lightbox-video');
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            if (mediaSrc.endsWith('.mp4')) {
+                img.classList.add('hidden');
+                video.classList.remove('hidden');
+                video.src = mediaSrc;
+                video.play();
+            } else {
+                video.classList.add('hidden');
+                video.pause();
+                img.classList.remove('hidden');
+                img.src = mediaSrc;
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const video = document.getElementById('lightbox-video');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            video.pause();
+            video.src = ""; 
+        }
+    </script>
+
+    <footer class="py-10 text-center text-gray-600 border-t border-gray-800">
+        <p>&copy; 2026 Mada Agency. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
